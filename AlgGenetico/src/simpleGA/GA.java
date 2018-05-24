@@ -1,8 +1,14 @@
 package simpleGA;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class GA {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+    	
+    	LectorCSV Lector = new LectorCSV();
+    	Lector.leerCSVSimple("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt");
 
         // Set a candidate solution
         FuncionActitud.setSolution("1111000000000000000000000000000000000000000000000000000000001111");
