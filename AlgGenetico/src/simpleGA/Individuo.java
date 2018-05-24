@@ -4,6 +4,7 @@ public class Individuo {
 
     static int defaultGeneLength = 138;
     private byte[] genes = new byte[defaultGeneLength];
+    byte[] decimal = new byte[69];
     // Cache
     private int fitness = 0;
     
@@ -30,15 +31,15 @@ public class Individuo {
 	        if (j == 60)  {a = 1 ; b = 0;}
 	        if (j == 108) {a = 1 ; b = 1;}                  	
 		}     
-	    
-	    
+	      
 	    //Si hay repetido, cambia valores para que dejen de repetirse.
-	    boolean vf = HayRepetidos();
-	    
+	    boolean vf = HayRepetidos();	    
 	    if  (vf == true);	    
 	    {
 	    	CambiarRepetidos();
 	    }
+	    
+	    pasarADecimal();	    
     }
 
     public void CambiarRepetidos()
@@ -84,13 +85,46 @@ public class Individuo {
 		    	 if (getBit(k+2) == getBit(j+8)  &&	 getBit(k+3) == getBit(j+9)  &&
 					 getBit(k+4) == getBit(j+10) &&	 getBit(k+5) == getBit(j+11))
 					 {
-		    		 vf = true;
+		    		 return true;
 					 }
 		    	 j=j+6;
 		     }   
 		     k = k+6;
 		}     	    	
     	return vf;
+    }
+    
+    public void pasarADecimal(){
+    
+    	int k = 0;
+    	int j = 0;
+    	for(int i=0; i<23; i++)
+		{
+    		//POSICIÓN
+    		decimal[j]  = (byte) (2 * getBit(k)   + getBit(k+1));
+    		//CONDICIÓN FÍSICA
+    		decimal[j+1]= (byte) (2 * getBit(k+2) + getBit(k+3) + 7);
+    		//NIVEL
+    		decimal[j+2]= (byte) (2 * getBit(k+4) + getBit(k+5) + 7);
+   		
+    		j+=3;
+    		k+=6;
+		}    	
+    }
+    
+    public int funcionAptitud(){    
+    	int suma = 0;
+		int j = 0;    	
+    	
+    	//AGREGAR TODAS LAS CONDICIONES QUE FALTAN.
+    	for(int i=0; i<23; i++)
+		{
+    		suma+= decimal[j+1] + decimal[j+2];
+    		j+= 3;
+    		
+    		//MESSI es decimaL(k) = 3 y decimal(k+1) = 10 y decimal (k+2) = 10 x ejempLo.
+		}
+    	return suma;  	    
     }
     
     

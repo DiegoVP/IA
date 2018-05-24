@@ -23,9 +23,10 @@ public class GA {
     	}    	
 */
     	
-    	Poblacion pobla = new Poblacion(5, true);    	
-  		  
-       for (int j=0;j<5;j++) 
+    	Poblacion pobla = new Poblacion(5, true);    
+    	
+    	 		  
+      /* for (int j=0;j<5;j++) 
        {
            int k = 0;
     	   for(int i=0; i<138; i++)
@@ -38,6 +39,22 @@ public class GA {
     		   k =0; }
     	   }
        	System.out.println(" ");
+       }*/
+       
+       for (int j=0;j<5;j++) 
+       {
+           int k = 0;
+    	   for(int i=0; i<69; i++)
+    	   {
+    		   System.out.print(pobla.Individuos[j].decimal[i]+" ");
+
+    		   k++;
+    		   if (k == 3) {
+    			   System.out.println(" ");    			   
+    		   k =0; }
+    	   }
+	   System.out.println("FA: " + pobla.Individuos[j].funcionAptitud());   
+       System.out.println(" ");
        }
     	
   	
