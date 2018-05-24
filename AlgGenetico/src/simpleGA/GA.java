@@ -7,9 +7,41 @@ public class GA {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
     	
-    	LectorCSV Lector = new LectorCSV();
-    	Lector.leerCSVSimple("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt");
+    	int cols = 5;
+    	int fils = 66;
+    	String[][] jugadores = new String[fils][cols];
+    	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
 
+/*
+    	for(int i=0; i<66; i++)
+    	{
+    	 for(int j=0; j<5; j++)
+    	 {
+    	 System.out.print(jugadores[i][j]+";");
+    	 }
+    	 System.out.println("");
+    	}    	
+*/
+    	
+    	Poblacion pobla = new Poblacion(5, true);    	
+  		  
+       for (int j=0;j<5;j++) 
+       {
+           int k = 0;
+    	   for(int i=0; i<138; i++)
+    	   {
+    		   System.out.print(pobla.Individuos[j].getBit(i));
+
+    		   k++;
+    		   if (k == 6) {
+    			   System.out.println(" ");
+    		   k =0; }
+    	   }
+       	System.out.println(" ");
+       }
+    	
+  	
+    	/*
         // Set a candidate solution
         FuncionActitud.setSolution("1111000000000000000000000000000000000000000000000000000000001111");
 
@@ -27,6 +59,6 @@ public class GA {
         System.out.println("Generation: " + generationCount);
         System.out.println("Genes:");
         System.out.println(myPop.getFittest());
-
+*/
     }
 }

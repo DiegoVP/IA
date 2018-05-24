@@ -23,7 +23,11 @@ public class LectorCSV {
 	 * @param path Ruta donde está el archivo
 	 * @throws IOException 
 	 */
-	public void leerCSVSimple(String path) throws IOException {
+	public static String[][] PasarCSVaMatriz(String path, int fils, int cols) throws IOException {
+		
+		//
+		 String[][] matriz = new String[fils][cols];
+		 byte fila = 0;
 		
 		// Abro el .csv en buffer de lectura
 		BufferedReader bufferLectura = new BufferedReader(new FileReader(path));
@@ -34,16 +38,24 @@ public class LectorCSV {
 		while (linea != null) {
 			// Separa la línea leída con el separador definido previamente
 			String[] campos = linea.split(String.valueOf(';'));
-			System.out.println(Arrays.toString(campos));
+
+			matriz[fila][0] = campos[0];
+			matriz[fila][1] = campos[1];
+			matriz[fila][2] = campos[2];	
+			matriz[fila][3] = campos[3];		
+			matriz[fila][4] = campos[4];		
 			
 			// Vuelvo a leer del fichero
 			linea = bufferLectura.readLine();
+			fila++;
 		}
 		
 		// Cierro el buffer de lectura
 		if (bufferLectura != null) {
 			bufferLectura.close();
 		}
+		
+		return matriz;
 	}
 
 }
