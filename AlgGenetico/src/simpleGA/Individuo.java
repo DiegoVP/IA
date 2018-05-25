@@ -1,47 +1,54 @@
 package simpleGA;
 
-public class Individuo {
+public class Individuo implements Comparable<Individuo>{
 
     static int defaultGeneLength = 138;
-    byte[] genes   = new byte[defaultGeneLength];
+    byte[] binario = new byte[defaultGeneLength];
     byte[] decimal = new byte[69];
+    int puntaje = 0;
     // Cache
     private int fitness = 0;
     
-    public Individuo(){    	
+    public Individuo(boolean initialise){    	
 		//Genero valores random para los 23 jugadores.
     	
-	    for(int i=0; i<138; i++)
-		{
-	        byte gene = (byte) Math.round(Math.random());      
-	        setBit(i,gene);
-		}	  
-	    
-		//Fuerzo a que haya 3 Arqueros, 7 defensores, 8 volantes y 5 delanteros.
-		byte a = 0;
-		byte b = 0;
-		int j = 0;
-		
-	    for(int i=0; i<23; i++)
-		{
-	    	setBit(j,a);
-	    	setBit(j+1,b);
-	    	j = j + 6;
-	    	
-	        if (j == 18)  {a = 0 ; b = 1;}
-	        if (j == 60)  {a = 1 ; b = 0;}
-	        if (j == 108) {a = 1 ; b = 1;}                  	
-		}     
-	      
-	    //Si hay repetido, cambia valores para que dejen de repetirse.
-	    boolean vf = HayRepetidos();	    
-	    if  (vf == true);	    
+	    if (initialise)
 	    {
-	    	CambiarRepetidos();
+	    	for(int i=0; i<138; i++)
+			{
+		        byte bit = (byte) Math.round(Math.random());      
+		        setBit(i,bit);
+			}	  
+		    
+			//Fuerzo a que haya 3 Arqueros, 7 defensores, 8 volantes y 5 delanteros.
+			byte a = 0;
+			byte b = 0;
+			int j = 0;
+			
+		    for(int i=0; i<23; i++)
+			{
+		    	setBit(j,a);
+		    	setBit(j+1,b);
+		    	j = j + 6;
+		    	
+		        if (j == 18)  {a = 0 ; b = 1;}
+		        if (j == 60)  {a = 1 ; b = 0;}
+		        if (j == 108) {a = 1 ; b = 1;}                  	
+			}     
+		      
+		    //Si hay repetido, cambia valores para que dejen de repetirse.
+		    boolean vf = HayRepetidos();	    
+		    if  (vf == true);	    
+		    {
+		    	CambiarRepetidos();
+		    }
+		    
+		    //Genera 
+		    pasarADecimal();	   
+		    
+		    //Obtiene la Función Aptitud;
+		    puntaje = obtenerFuncionAptitud();	
 	    }
-	    
-	    //Genera 
-	    pasarADecimal();	    
     }
 
     public void CambiarRepetidos()
@@ -114,7 +121,7 @@ public class Individuo {
 		}    	
     }
     
-    public int funcionAptitud(){    
+    public int obtenerFuncionAptitud(){    
     	int suma = 0;
 		int j = 0;    	
     	
@@ -137,17 +144,17 @@ public class Individuo {
     }
     
     public byte getBit(int index) {
-        return genes[index];
+        return binario[index];
     }
 
     public void setBit(int index, byte value) {
-        genes[index] = value;
+        binario[index] = value;
         fitness = 0;
     }
 
     /* Public methods */
     public int size() {
-        return genes.length;
+        return binario.length;
     }
 
     public int getFitness() {
@@ -158,12 +165,18 @@ public class Individuo {
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         String geneString = "";
-        for (int i = 0; i < size(); i++) {
-            geneString += getBit(i);
-        }
+        for (int i = 0; i < size(); i++) {geneString += getBit(i);}
         return geneString;
     }
-    
+
+	@Override
+	public int compareTo(Individuo ind) 
+	{
+        if (puntaje > ind.puntaje) {return -1;}        
+        if (puntaje < ind.puntaje) {return 1;}
+        return 0;
+    }    
 }
