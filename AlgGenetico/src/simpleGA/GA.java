@@ -5,58 +5,74 @@ import java.io.IOException;
 
 public class GA {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-    	
+    public static void main(String[] args) throws FileNotFoundException, IOException 
+    {    
     	int cols = 5;
     	int fils = 66;
     	String[][] jugadores = new String[fils][cols];
     	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
 
-/*
-    	for(int i=0; i<66; i++)
+    	//Muestro los Jugadores del CSV.    	
+    	for(String[] jugador : jugadores)
     	{
-    	 for(int j=0; j<5; j++)
-    	 {
-    	 System.out.print(jugadores[i][j]+";");
-    	 }
-    	 System.out.println("");
-    	}    	
-*/
+    		for(String detalle : jugador)
+    		{
+    		System.out.print(detalle + ";");   		
+    		}
+    		System.out.println();
+    	}
     	
-    	Poblacion pobla = new Poblacion(5, true);    
+        System.out.println();
+    	System.out.println("Generación Población");
+    	Poblacion pobla = new Poblacion(5, true); 
     	
-    	 		  
-      /* for (int j=0;j<5;j++) 
-       {
-           int k = 0;
-    	   for(int i=0; i<138; i++)
-    	   {
-    		   System.out.print(pobla.Individuos[j].getBit(i));
 
-    		   k++;
-    		   if (k == 6) {
-    			   System.out.println(" ");
-    		   k =0; }
-    	   }
-       	System.out.println(" ");
-       }*/
-       
-       for (int j=0;j<5;j++) 
-       {
-           int k = 0;
-    	   for(int i=0; i<69; i++)
-    	   {
-    		   System.out.print(pobla.Individuos[j].decimal[i]+" ");
+	    System.out.println("En Bits:");   	    	
+    	//Muestra Población por BIT.    	
+        for(Individuo individuo : pobla.Individuos)
+        {
+        	int k = 0;
+        	for(byte bit : individuo.genes)
+        	{
+        		System.out.print(bit);
+        		
+     		    k++;
+     		    if (k == 6) 
+     		    {
+     		    	System.out.print("|");
+     		    	k = 0; 
+     		    }	
+        	} 
+        	System.out.println();
+        }
+        
 
-    		   k++;
-    		   if (k == 3) {
-    			   System.out.println(" ");    			   
-    		   k =0; }
+        System.out.println();
+        System.out.println("En Decimales:");       	
+       //Muestra Poblabcion en forma Decimal.
+       for(Individuo individuo : pobla.Individuos)
+       {
+		   int k = 0;
+    	   for(byte decimal : individuo.decimal)
+    	   {
+			   System.out.print(decimal);		   
+			   k++;
+			   if (k == 3) 
+			   {
+				   System.out.print("|");    			   
+				   k =0; 
+			   }
     	   }
-	   System.out.println("FA: " + pobla.Individuos[j].funcionAptitud());   
-       System.out.println(" ");
+           System.out.println();
        }
-    	
+       
+       System.out.println();
+       System.out.println("Función de Aptitud de Cada Población:");  
+       for(Individuo individuo : pobla.Individuos)
+       {
+	   System.out.println("FA: " + individuo.funcionAptitud()); 
+       }
+       
   	
     	/*
         // Set a candidate solution

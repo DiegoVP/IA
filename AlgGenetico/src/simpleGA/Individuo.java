@@ -3,19 +3,20 @@ package simpleGA;
 public class Individuo {
 
     static int defaultGeneLength = 138;
-    private byte[] genes = new byte[defaultGeneLength];
+    byte[] genes   = new byte[defaultGeneLength];
     byte[] decimal = new byte[69];
     // Cache
     private int fitness = 0;
     
     public Individuo(){    	
-		//Genero valores random para los 23 jugadores. 			
+		//Genero valores random para los 23 jugadores.
+    	
 	    for(int i=0; i<138; i++)
 		{
 	        byte gene = (byte) Math.round(Math.random());      
 	        setBit(i,gene);
 		}	  
-		
+	    
 		//Fuerzo a que haya 3 Arqueros, 7 defensores, 8 volantes y 5 delanteros.
 		byte a = 0;
 		byte b = 0;
@@ -39,6 +40,7 @@ public class Individuo {
 	    	CambiarRepetidos();
 	    }
 	    
+	    //Genera 
 	    pasarADecimal();	    
     }
 
