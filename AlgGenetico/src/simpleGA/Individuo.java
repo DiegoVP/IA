@@ -3,11 +3,9 @@ package simpleGA;
 public class Individuo implements Comparable<Individuo>{
 
     static int defaultGeneLength = 138;
+    int puntaje = 0;
     byte[] binario = new byte[defaultGeneLength];
     byte[] decimal = new byte[69];
-    int puntaje = 0;
-    // Cache
-    private int fitness = 0;
     
     public Individuo(boolean initialise){    	
 		//Genero valores random para los 23 jugadores.
@@ -153,21 +151,14 @@ public class Individuo implements Comparable<Individuo>{
         return binario[index];
     }
 
-    public void setBit(int index, byte value) {
+    public void setBit(int index, byte value) 
+    {
         binario[index] = value;
-        fitness = 0;
     }
 
     /* Public methods */
     public int size() {
         return binario.length;
-    }
-
-    public int getFitness() {
-        if (fitness == 0) {
-            fitness = FuncionActitud.getFitness(this);
-        }
-        return fitness;
     }
 
     @Override

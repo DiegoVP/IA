@@ -12,6 +12,7 @@ public class GA {
     	String[][] jugadores = new String[fils][cols];
     	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
 
+        System.out.println("----ARCHIVO CSV----");
     	//Muestro los Jugadores del CSV.    	
     	for(String[] jugador : jugadores)
     	{
@@ -23,116 +24,53 @@ public class GA {
     	}
     	
         System.out.println();
-    	System.out.println("Generación Población");
-    	Poblacion pobla = new Poblacion(10, true); 
+    	System.out.println("----POBLACIÓN INICIAL----");
+    	Poblacion poblaIni = new Poblacion(10, true); 
     	
-
 	    System.out.println("En Bits:");   	    	
     	//Muestra Población por BIT.    	
-        for(Individuo individuo : pobla.Individuos)
-        {
-        	int k = 0;
-        	for(byte bit : individuo.binario)
-        	{
-        		System.out.print(bit);
-        		
-     		    k++;
-     		    if (k == 6) 
-     		    {
-     		    	System.out.print("|");
-     		    	k = 0; 
-     		    }	
-        	} 
-        	System.out.println();
-        }
-        
-
+	    poblaIni.mostrarPoblacionBin();
+  
         System.out.println();
         System.out.println("En Decimales:");       	
        //Muestra Poblabcion en forma Decimal.
-       for(Individuo individuo : pobla.Individuos)
-       {
-		   int k = 0;
-    	   for(byte decimal : individuo.decimal)
-    	   {
-			   System.out.print(decimal);		   
-			   k++;
-			   if (k == 3) 
-			   {
-				   System.out.print("|");    			   
-				   k =0; 
-			   }
-    	   }
-           System.out.println();
-       }
+        poblaIni.mostrarPoblacionDec();
        
        System.out.println();
-       System.out.println("Función de Aptitud de Cada Población:");  
-       for(Individuo individuo : pobla.Individuos)
-       {
-	   System.out.println("FA: " + individuo.puntaje); 
-       }
+       System.out.println("Función Aptitud Po:");  
+       poblaIni.mostrarFA();
        
        System.out.println();
-       System.out.println("Ordenamiento por Ranking:");  
-       pobla.SeleccionRanking();
-              
-       for(Individuo individuo : pobla.Individuos)
-       {
-	   System.out.println("FA: " + individuo.puntaje); 
-       }
+       System.out.println("----SELECCION----"); 
+       Poblacion poblaSel = new Poblacion(5, false); 
+       poblaSel = Operador.SeleccionRanking(poblaIni, 6);
        
+       System.out.println("Función Aptitud Ps:");  
+       poblaSel.mostrarFA();
+       
+       System.out.println();
        System.out.println("----CRUZAMIENTO----");   
        
-       Poblacion poblaCruz = new Poblacion(5, false);       
-       poblaCruz = pobla.Cruzamiento();
-       
+       Poblacion poblaCruz = new Poblacion(6, false);       
+       poblaCruz = Operador.Cruzamiento(poblaSel,6);       
   	  
-    System.out.println("En Bits:");   	    	
-   	//Muestra Población por BIT.    	
-       for(Individuo individuo : poblaCruz.Individuos)
-       {
-       	int k = 0;
-       	for(byte bit : individuo.binario)
-       	{
-       		System.out.print(bit);
-       		
-    		    k++;
-    		    if (k == 6) 
-    		    {
-    		    	System.out.print("|");
-    		    	k = 0; 
-    		    }	
-       	} 
-       	System.out.println();
-       }
-       
+	    System.out.println("En Bits:");   	    	
+	   	//Muestra Población por BIT.    	
+	    poblaCruz.mostrarPoblacionBin();
+              
        System.out.println();
        System.out.println("En Decimales:");       	
       //Muestra Poblabcion en forma Decimal.
-      for(Individuo individuo : poblaCruz.Individuos)
-      {
-		   int k = 0;
-   	   for(byte decimal : individuo.decimal)
-   	   {
-			   System.out.print(decimal);		   
-			   k++;
-			   if (k == 3) 
-			   {
-				   System.out.print("|");    			   
-				   k =0; 
-			   }
-   	   }
-          System.out.println();
-      }
-      
+       poblaCruz.mostrarPoblacionDec();
+                   
       System.out.println();
-      System.out.println("Función de Aptitud de Cada Población:");  
-      for(Individuo individuo : poblaCruz.Individuos)
-      {
-	   System.out.println("FA: " + individuo.puntaje); 
-      }
+      System.out.println("Función Aptitud de Pc:");  
+      poblaCruz.mostrarFA();
        
+      System.out.println();
+      System.out.println("----MUTACIÓN----");   
+      
+      
   	
     	/*
         // Set a candidate solution
