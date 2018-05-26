@@ -1,64 +1,64 @@
 1;Sergio Romero;00;1001;1000
 2;Wilfredo Caballero;00;0111;0111
-3;Nahuel Guzm·n;00;0110;0100
+3;Nahuel Guzm√°n;00;0110;0100
 4;Franco Armani;00;1010;1010
 5;Mariano Andujar;00;1000;0101
-6;GerÛnimo Rulli;00;1000;0110
+6;Ger√≥nimo Rulli;00;1000;0110
 7;Marcelo Barovero;00;1000;1000
 8;Gabriel Mercado;01;1000;1000
 9;Eduardo Salvio;01;1000;1001
 10;Javier Mascherano;01;1000;0111
-11;Nico·s Otamendi;01;1010;1010
-12;Germ·n Pezzella;01;0111;1000
+11;Nico√°s Otamendi;01;1010;1010
+12;Germ√°n Pezzella;01;0111;1000
 13;Federico Fazio;01;1010;1001
 14;Marcos Rojo;01;0110;0111
 15;Ramiro Funes Mori;01;0110;1001
-16;Nicol·s Tagliafico;01;1001;1010
-17;Marcos AcuÒa;01;1010;1000
+16;Nicol√°s Tagliafico;01;1001;1010
+17;Marcos Acu√±a;01;1010;1000
 18;Cristian Anzaldi;01;0101;0100
 19;Jonathan Maidana;01;0110;1000
 20;Javier Pinola;01;0111;1001
 21;Ezequiel Garay;01;0101;0110
 22;Emanuel Mammana;01;0001;0011
-23;JosÈ Luis GÛmez;01;0010;0100
+23;Jos√© Luis G√≥mez;01;0010;0100
 24;Pablo Zabaleta;01;0100;0101
 25;Manuel Lanzini;10;1010;1010
-26;Ricardo CenturiÛn;10;1000;0111
+26;Ricardo Centuri√≥n;10;1000;0111
 27;Maximiliano Meza;10;1000;1000
 28;Lucas Biglia;10;0101;0111
 29;Guido Pizarro;10;0111;0101
 30;Enzo Perez;10;0111;0111
 31;Ever Banega;10;1000;0110
-32;Germ·n Lo Celso;10;1001;1000
+32;Germ√°n Lo Celso;10;1001;1000
 33;Leandro Paredes;10;1;000;0101
 34;Rodrigo Bataglia;10;0101;0011
-35;Angel Di MarÌa;10;1001;1001
-36;Cristian PavÛn;10;1010;1001
+35;Angel Di Mar√≠a;10;1001;1001
+36;Cristian Pav√≥n;10;1010;1001
 37;Pablo Perez;10;0101;0101
 38;Leonardo Ponzio;10;0111;1000
 39;Gonzalo Martinez;10;1001;1010
-40;MatÌas Kraneviter;10;1000;1001
+40;Mat√≠as Kraneviter;10;1000;1001
 41;Guido Rodriguez;10;0100;0100
 42;Ignacio Fernandez;10;0111;0110
 43;Fernando Gago;10;0001;0001
 44;Maximiliano Rogriguez;10;0011;0011
 45;Augusto Fernandez;10;0101;0010
 46;Ricardo Alvarez;10;0101;0011
-47;JosÈ Sosa;10;0100;0010
-48;Fabi·n Rinaudo;10;0100;0001
+47;Jos√© Sosa;10;0100;0010
+48;Fabi√°n Rinaudo;10;0100;0001
 49;Leonardo Pisculichi;10;0101;0100
 50;Fernando Belluschi;10;0001;0010
 51;Lucas Ocampos;10;1001;0111
 52;Paulo Dybala;11;1001;1001
 53;Diego Perotti;11;0111;0101
 54;Lionel Messi;11;1010;1010
-55;Sergio Ag¸ero;11;1000;1001
-56;Gonzalo HiguaÌn;11;1000;1000
+55;Sergio Ag√ºero;11;1000;1001
+56;Gonzalo Higua√≠n;11;1000;1000
 57;Lautaro Martinez;11;1001;1000
 58;Mauro Icardi;11;1001;1010
 59;Lucas Alario;11;1001;0111
-60;JoaquÌn Correa;11;0111;0110
-61;Alejandro GÛmez;11;0110;0101
+60;Joaqu√≠n Correa;11;0111;0110
+61;Alejandro G√≥mez;11;0110;0101
 62;Lucas Pratto;11;0110;0110
 63;Ezequiel Lavezzi;11;0111;1000
 64;Rodrigo Palacio;11;0100;0010
