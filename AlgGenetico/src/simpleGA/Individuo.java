@@ -133,6 +133,12 @@ public class Individuo implements Comparable<Individuo>{
     		
     		//MESSI es decimaL(k) = 3 y decimal(k+1) = 10 y decimal (k+2) = 10 x ejempLo.
 		}
+    	
+    	if (HayRepetidos() == true)
+    	{
+    		suma = 0;
+    	}
+    	   	
     	return suma;  	    
     }
     

@@ -31,7 +31,7 @@ public class Poblacion {
     
     public Poblacion Cruzamiento()
     {
-   	  	int cantRank = 10;
+   	  	int cantRank = 6;
    	  	int k = cantRank - 1;
     	int cruzamientos = cantRank/2;
     	
