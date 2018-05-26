@@ -5,22 +5,19 @@ package simpleGA;
 public class Poblacion {
 
     Individuo[] Individuos;
-    int populationSize;
+    int cantPob;
     
     // Crea la Población.
-    public Poblacion(int popSize, boolean initialise) 
+    public Poblacion(int popSize, boolean inicializar) 
     {
-    	populationSize = popSize;
-    	Individuos = new Individuo[populationSize];
+    	cantPob = popSize;
+    	Individuos = new Individuo[cantPob];
     	
-        //if (initialise) 
-        //{
-        	for (int i = 0; i < populationSize; i++) 
-        	{
-                Individuo newIndividuo = new Individuo(initialise);
-                Individuos[i] = newIndividuo;
-            }
-        //}
+        for (int i = 0; i < cantPob; i++) 
+        {
+        	Individuo nuevoIndividuo = new Individuo(inicializar);
+            Individuos[i] = nuevoIndividuo;
+        }
     }
     
     public void mostrarPoblacionBin()
