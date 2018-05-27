@@ -27,25 +27,25 @@ public class GA {
     	*/
     	
     	//Condiciones Iniciales
-    	//Población inicial.
+    	//PoblaciÃ³n inicial.
     	int cantPI = 50;
     	
-    	//Selección
+    	//SelecciÃ³n
     	int cantSel = 10; //Elementos m seleccionados para Ranking.
     	
-    	//Mutación.
-    	double porMut = 0.08;
+    	//MutaciÃ³n.
+    	double porMut = 0.15;
     	int indMut = 3;
     	int bitMut = 100;
     	
     	//Ciclos
     	int ciclos = 3;
     	
-    	System.out.println("1) Creación de Población Inicial: " + cantPI + " individuos");
+    	System.out.println("1) CreaciÃ³n de PoblaciÃ³n Inicial: " + cantPI + " individuos");
     	Poblacion poblaIni = new Poblacion(cantPI, true); 
     	
 	    //System.out.println("En Bits:");   	    	
-    	//Muestra Población por BIT.    	
+    	//Muestra PoblaciÃ³n por BIT.    	
 	    //poblaIni.mostrarPoblacionBin();
   
        //System.out.println();
@@ -54,20 +54,20 @@ public class GA {
        //poblaIni.mostrarPoblacionDec();
        
        //System.out.println();
-       //System.out.println("Función Aptitud Po:");  
+       //System.out.println("FunciÃ³n Aptitud Po:");  
        //poblaIni.mostrarFA();       
        
        //COMIENZA EL CICLO DE PARO 
-       System.out.println("2) Comienza la operación."); 
+       System.out.println("2) Comienza la operaciÃ³n."); 
        for(int c=1;c<=ciclos;c++)
 	   {
     	   System.out.println("Ciclo: " + c);
 	       
-	       System.out.println("A) Selección: Ranking."); 
+	       System.out.println("A) SelecciÃ³n: Ranking."); 
 	       Poblacion poblaSel = new Poblacion(cantSel, false); 
 	       poblaSel = Operador.Seleccion(poblaIni, cantSel);
 	       
-	       //System.out.println("Función Aptitud Ps:");  
+	       //System.out.println("FunciÃ³n Aptitud Ps:");  
 	       //poblaSel.mostrarFA();
 	       
 	       System.out.println("B) Cruzamiento: Multipunto");   
@@ -76,7 +76,7 @@ public class GA {
 	       poblaCruz = Operador.Cruzamiento(poblaSel,cantSel);       
 	  	  
 		    //System.out.println("En Bits:");   	    	
-		   	//Muestra Población por BIT.    	
+		   	//Muestra PoblaciÃ³n por BIT.    	
 		    //poblaCruz.mostrarPoblacionBin();
 	              
 	       //System.out.println();
@@ -85,33 +85,33 @@ public class GA {
 	       // poblaCruz.mostrarPoblacionDec();
 	                   
 	      //System.out.println();
-	      //System.out.println("Función Aptitud de Pc:");  
+	      //System.out.println("FunciÃ³n Aptitud de Pc:");  
 	      //poblaCruz.mostrarFA();
 	       
-	      System.out.print("C) Mutación (" + porMut + "%): ");   
+	      System.out.print("C) MutaciÃ³n (" + porMut + "%): ");   
 	      Poblacion poblaMut = new Poblacion(cantSel, false); 
 
 	      poblaMut = Operador.Mutacion(poblaCruz, porMut, indMut, bitMut);
 	      
-	      //Se asigna la Población Mutada para el próximo ciclo.
+	      //Se asigna la PoblaciÃ³n Mutada para el prÃ³ximo ciclo.
 	      poblaIni = poblaMut;      
        }
        
-       //Poblacion Final, le asigno el último contenido que le quedo a la Pi
+       //Poblacion Final, le asigno el Ãºltimo contenido que le quedo a la Pi
        //No hace falta esta asignacion pero es para que quede claro.
        Poblacion poblaFin = new Poblacion(cantSel, false); 
        poblaFin = poblaIni;
        
-       //ACÁ SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
+       //ACÃ SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
        System.out.println();
-	   System.out.println("3) Población Final");   
-	   System.out.print("Resultados Función Aptitud: "); 
+	   System.out.println("3) PoblaciÃ³n Final");   
+	   System.out.print("Resultados FunciÃ³n Aptitud: "); 
    	   Arrays.sort(poblaFin.Individuos);
    	   poblaIni.mostrarFA();
    	  
    	   System.out.println();
    	   System.out.println();
-	   System.out.print("Composición del mejor invidiuo");  
+	   System.out.print("ComposiciÃ³n del mejor invidiuo");  
 	   System.out.println(" (" + poblaFin.Individuos[0].puntaje + "):");	   
 	   
 	   poblaFin.Individuos[0].mostrarJugadores(jugadores);
