@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class AlgoritmoGenetico {
+public class GA {
 
     public static void main(String[] args) throws FileNotFoundException, IOException 
     {    
