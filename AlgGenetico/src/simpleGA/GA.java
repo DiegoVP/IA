@@ -16,13 +16,13 @@ public class GA {
     	//jugadores = LectorCSV.PasarCSVaMatriz(args[0],fils,cols);
 
     	//Condiciones Iniciales
-    	//Población inicial.
+    	//PoblaciÃ³n inicial.
     	int cantPI = 50;
     	
-    	//Selección
+    	//SelecciÃ³n
     	int cantSel = 10; //Elementos m seleccionados para Ranking.
     	
-    	//Mutación.
+    	//MutaciÃ³n.
     	double porMut = 0.15;
     	int indMut = 3;
     	int bitMut = 100;
@@ -31,10 +31,11 @@ public class GA {
     	int ciclos = 3;
     	
     	System.out.println("1) Creación de Población Inicial: " + cantPI + " individuos");
+	System.out.println("   Cantidad de ciclos: " + ciclos);
     	Poblacion poblaIni = new Poblacion(cantPI, true); 
     	
 	    //System.out.println("En Bits:");   	    	
-    	//Muestra Población por BIT.    	
+    	//Muestra PoblaciÃ³n por BIT.    	
 	    //poblaIni.mostrarPoblacionBin();
   
        //System.out.println();
@@ -43,7 +44,7 @@ public class GA {
        //poblaIni.mostrarPoblacionDec();
        
        //System.out.println();
-       //System.out.println("Función Aptitud Po:");  
+       //System.out.println("FunciÃ³n Aptitud Po:");  
        //poblaIni.mostrarFA();       
        
        //COMIENZA EL CICLO DE PARO 
@@ -56,7 +57,7 @@ public class GA {
 	       Poblacion poblaSel = new Poblacion(cantSel, false); 
 	       poblaSel = Operador.Seleccion(poblaIni, cantSel);
 	       
-	       //System.out.println("Función Aptitud Ps:");  
+	       //System.out.println("FunciÃ³n Aptitud Ps:");  
 	       //poblaSel.mostrarFA();
 	       
 	       System.out.println("B) Cruzamiento: Multipunto");   
@@ -65,7 +66,7 @@ public class GA {
 	       poblaCruz = Operador.Cruzamiento(poblaSel,cantSel);       
 	  	  
 		    //System.out.println("En Bits:");   	    	
-		   	//Muestra Población por BIT.    	
+		   	//Muestra PoblaciÃ³n por BIT.    	
 		    //poblaCruz.mostrarPoblacionBin();
 	              
 	       //System.out.println();
@@ -74,7 +75,7 @@ public class GA {
 	       // poblaCruz.mostrarPoblacionDec();
 	                   
 	      //System.out.println();
-	      //System.out.println("Función Aptitud de Pc:");  
+	      //System.out.println("FunciÃ³n Aptitud de Pc:");  
 	      //poblaCruz.mostrarFA();
 	       
 	      System.out.print("C) Mutación (" + porMut + "%): ");   
@@ -82,16 +83,16 @@ public class GA {
 
 	      poblaMut = Operador.Mutacion(poblaCruz, porMut, indMut, bitMut);
 	      
-	      //Se asigna la Población Mutada para el próximo ciclo.
+	      //Se asigna la PoblaciÃ³n Mutada para el prÃ³ximo ciclo.
 	      poblaIni = poblaMut;      
        }
        
-       //Poblacion Final, le asigno el último contenido que le quedo a la Pi
+       //Poblacion Final, le asigno el Ãºltimo contenido que le quedo a la Pi
        //No hace falta esta asignacion pero es para que quede claro.
        Poblacion poblaFin = new Poblacion(cantSel, false); 
        poblaFin = poblaIni;
        
-       //AC� SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
+       //ACÁ SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
        System.out.println();
 	   System.out.println("3) Población Final");   
 	   System.out.print("Resultados Función Aptitud: "); 
@@ -100,7 +101,7 @@ public class GA {
    	  
    	   System.out.println();
    	   System.out.println();
-	   System.out.print("Composici�n del mejor invidiuo");  
+	   System.out.print("Composición del mejor invidiuo");  
 	   System.out.println(" (" + poblaFin.Individuos[0].puntaje + "):");	   
 	   System.out.print("Cromosoma: ");
    	   poblaFin.Individuos[0].mostrarBin();
