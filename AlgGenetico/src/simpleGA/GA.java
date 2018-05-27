@@ -11,9 +11,9 @@ public class GA {
     	int cols = 5;
     	int fils = 64;
     	String[][] jugadores = new String[fils][cols];
-    	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
+    	//jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
     	//Pasando la ruta del arch como argumento al ejecutar Ej: java simpleGA.GA C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt
-    	//jugadores = LectorCSV.PasarCSVaMatriz(args[0],fils,cols);
+    	jugadores = LectorCSV.PasarCSVaMatriz(args[0],fils,cols);
 
     	//Condiciones Iniciales
     	//PoblaciÃ³n inicial.
