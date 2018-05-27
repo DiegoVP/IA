@@ -11,7 +11,7 @@ public class GA {
     	int cols = 5;
     	int fils = 64;
     	String[][] jugadores = new String[fils][cols];
-    	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/vidal/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
+    	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
 
         /*System.out.println("----ARCHIVO CSV----");
     	//Muestro los Jugadores del CSV.    	
