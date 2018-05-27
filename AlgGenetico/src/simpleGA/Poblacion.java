@@ -63,12 +63,14 @@ public class Poblacion {
     {
         for(Individuo individuo : Individuos)
         {
-        	System.out.println("FA: " + individuo.puntaje); 
+        	System.out.print(individuo.puntaje + ","); 
         }
+        System.out.print("."); 
     }
     
      /* Getters */
     public Individuo getIndividual(int index) {
         return Individuos[index];
-    }    
+    }
+ 
 }

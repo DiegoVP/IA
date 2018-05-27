@@ -9,13 +9,13 @@ public class GA {
     public static void main(String[] args) throws FileNotFoundException, IOException 
     {    
     	int cols = 5;
-    	int fils = 66;
+    	int fils = 64;
     	String[][] jugadores = new String[fils][cols];
     	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
 
-        System.out.println("----ARCHIVO CSV----");
+        /*System.out.println("----ARCHIVO CSV----");
     	//Muestro los Jugadores del CSV.    	
-    	/*
+    	
         for(String[] jugador : jugadores)
     	{
     		for(String detalle : jugador)
@@ -41,59 +41,54 @@ public class GA {
     	//Ciclos
     	int ciclos = 3;
     	
-        System.out.println();
-    	System.out.println("----POBLACIÓN INICIAL----");
+    	System.out.println("1) Creación de Población Inicial.");
     	Poblacion poblaIni = new Poblacion(cantPI, true); 
     	
-	    System.out.println("En Bits:");   	    	
+	    //System.out.println("En Bits:");   	    	
     	//Muestra Población por BIT.    	
 	    //poblaIni.mostrarPoblacionBin();
   
-        System.out.println();
-        System.out.println("En Decimales:");       	
+       //System.out.println();
+       //System.out.println("En Decimales:");       	
        //Muestra Poblabcion en forma Decimal.
        //poblaIni.mostrarPoblacionDec();
        
-       System.out.println();
-       System.out.println("Función Aptitud Po:");  
-       poblaIni.mostrarFA();
-       
+       //System.out.println();
+       //System.out.println("Función Aptitud Po:");  
+       //poblaIni.mostrarFA();       
        
        //COMIENZA EL CICLO DE PARO 
-       for(int c=1;c<ciclos;c++)
+       System.out.println("2) Comienza la operación."); 
+       for(int c=1;c<=ciclos;c++)
 	   {
-    	   System.out.println();
-    	   System.out.println("CICLO: " + c);
+    	   System.out.println("Ciclo: " + c);
 	       
-	       System.out.println();
-	       System.out.println("----SELECCION----"); 
+	       System.out.println("A) Selección."); 
 	       Poblacion poblaSel = new Poblacion(cantSel, false); 
 	       poblaSel = Operador.Seleccion(poblaIni, cantSel);
 	       
-	       System.out.println("Función Aptitud Ps:");  
-	       poblaSel.mostrarFA();
+	       //System.out.println("Función Aptitud Ps:");  
+	       //poblaSel.mostrarFA();
 	       
-	       System.out.println();
-	       System.out.println("----CRUZAMIENTO----");   
+	       System.out.println("B) Cruzamiento.");   
 	       
 	       Poblacion poblaCruz = new Poblacion(cantSel, false);       
 	       poblaCruz = Operador.Cruzamiento(poblaSel,cantSel);       
 	  	  
-		    System.out.println("En Bits:");   	    	
+		    //System.out.println("En Bits:");   	    	
 		   	//Muestra Población por BIT.    	
 		    //poblaCruz.mostrarPoblacionBin();
 	              
-	       System.out.println();
-	       System.out.println("En Decimales:");       	
-	      //Muestra Poblabcion en forma Decimal.
-	      // poblaCruz.mostrarPoblacionDec();
+	       //System.out.println();
+	       //System.out.println("En Decimales:");       	
+	       //Muestra Poblabcion en forma Decimal.
+	       // poblaCruz.mostrarPoblacionDec();
 	                   
-	      System.out.println();
-	      System.out.println("Función Aptitud de Pc:");  
-	      poblaCruz.mostrarFA();
+	      //System.out.println();
+	      //System.out.println("Función Aptitud de Pc:");  
+	      //poblaCruz.mostrarFA();
 	       
-	      System.out.println();
-	      System.out.println("----MUTACIÓN----");   
+	      System.out.print("C) Mutación: ");   
 	      Poblacion poblaMut = new Poblacion(cantSel, false); 
 
 	      poblaMut = Operador.Mutacion(poblaCruz, porMut, indMut, bitMut);
@@ -109,11 +104,16 @@ public class GA {
        
        //ACÁ SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
        System.out.println();
-	   System.out.println("---- POBLACION FINAL----");   
+	   System.out.println("3) Población Final");   
+	   System.out.print("Resultados Función Aptitud: "); 
    	   Arrays.sort(poblaFin.Individuos);
    	   poblaIni.mostrarFA();
    	  
-	   System.out.println("---- EL MEJOR INDIVIDUO ENCONTRADO TIENE UNA FA DE----");  
-	   System.out.println(poblaFin.Individuos[0].puntaje);	   
+   	   System.out.println();
+   	   System.out.println();
+	   System.out.print("Composición del mejor invidiuo");  
+	   System.out.println(" (" + poblaFin.Individuos[0].puntaje + "):");	   
+	   
+	   poblaFin.Individuos[0].mostrarJugadores(jugadores);
     }
 }

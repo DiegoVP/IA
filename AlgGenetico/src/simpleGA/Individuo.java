@@ -159,4 +159,40 @@ public class Individuo implements Comparable<Individuo>{
     	   	
     	return suma;  	    
     }
+
+	public void mostrarJugadores(String[][] jugadores) 
+	{
+	    for(int i=0; i<138; i+=6)
+		{
+	    	boolean encontrado = false;
+	    	int k = 0;
+	    	
+    		String pos = String.valueOf(binario[i]);
+    		pos = pos.concat(String.valueOf(binario[i+1]));	    	
+    		String fis = String.valueOf(binario[i+2]);
+    		fis = fis.concat(String.valueOf(binario[i+3]));	    	    		
+    		String niv = String.valueOf(binario[i+4]);
+    		niv =niv.concat(String.valueOf(binario[i+5]));
+    		
+    		if (i==0)  {System.out.println("Arqueros:");}
+    		if (i==18) {System.out.println(); System.out.println("Defensores:");}
+    		if (i==60) {System.out.println(); System.out.println("Volantes:");}
+    		if (i==108){System.out.println();System.out.println("Delanteros:");}
+    		  		
+	    	while (encontrado == false)
+	    	{	    		
+	    		if (pos.equals(jugadores[k][2]) &&
+	    			fis.equals(jugadores[k][3]) &&
+	    			niv.equals(jugadores[k][4]))
+	    		{
+	            	System.out.println(" " + jugadores[k][1]); 
+	            	encontrado = true;
+	    		}
+	    		else
+	    		{
+	    			k++;
+	    		}
+	    	}		    
+		}		
+	}
 }
