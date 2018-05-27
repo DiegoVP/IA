@@ -41,7 +41,7 @@ public class GA {
     	//Ciclos
     	int ciclos = 3;
     	
-    	System.out.println("1) Creación de Población Inicial.");
+    	System.out.println("1) Creación de Población Inicial: " + cantPI + " individuos");
     	Poblacion poblaIni = new Poblacion(cantPI, true); 
     	
 	    //System.out.println("En Bits:");   	    	
@@ -63,14 +63,14 @@ public class GA {
 	   {
     	   System.out.println("Ciclo: " + c);
 	       
-	       System.out.println("A) Selección."); 
+	       System.out.println("A) Selección: Ranking."); 
 	       Poblacion poblaSel = new Poblacion(cantSel, false); 
 	       poblaSel = Operador.Seleccion(poblaIni, cantSel);
 	       
 	       //System.out.println("Función Aptitud Ps:");  
 	       //poblaSel.mostrarFA();
 	       
-	       System.out.println("B) Cruzamiento.");   
+	       System.out.println("B) Cruzamiento: Multipunto");   
 	       
 	       Poblacion poblaCruz = new Poblacion(cantSel, false);       
 	       poblaCruz = Operador.Cruzamiento(poblaSel,cantSel);       
@@ -88,7 +88,7 @@ public class GA {
 	      //System.out.println("Función Aptitud de Pc:");  
 	      //poblaCruz.mostrarFA();
 	       
-	      System.out.print("C) Mutación: ");   
+	      System.out.print("C) Mutación (" + porMut + "%): ");   
 	      Poblacion poblaMut = new Poblacion(cantSel, false); 
 
 	      poblaMut = Operador.Mutacion(poblaCruz, porMut, indMut, bitMut);
