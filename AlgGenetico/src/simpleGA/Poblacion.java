@@ -24,19 +24,7 @@ public class Poblacion {
     {
 	    for(Individuo individuo : Individuos)
 	    {
-	    	int k = 0;
-	    	for(byte bit : individuo.binario)
-	    	{
-	    		System.out.print(bit);
-	    		
-	 		    k++;
-	 		    if (k == 6) 
-	 		    {
-	 		    	System.out.print("|");
-	 		    	k = 0; 
-	 		    }	
-	    	} 
-	    	System.out.println();
+	    	individuo.mostrarBin();
 	    } 
     }
     
@@ -44,18 +32,7 @@ public class Poblacion {
     {
         for(Individuo individuo : Individuos)
         {
- 		   int k = 0;
-     	   for(byte decimal : individuo.decimal)
-     	   {
- 			   System.out.print(decimal);		   
- 			   k++;
- 			   if (k == 3) 
- 			   {
- 				   System.out.print("|");    			   
- 				   k =0; 
- 			   }
-     	   }
-            System.out.println();
+ 		   individuo.mostrarDec();  	
         }
     }
     
@@ -68,9 +45,6 @@ public class Poblacion {
         System.out.print("."); 
     }
     
-     /* Getters */
-    public Individuo getIndividual(int index) {
-        return Individuos[index];
-    }
+
  
 }

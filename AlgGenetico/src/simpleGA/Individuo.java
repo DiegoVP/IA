@@ -250,4 +250,37 @@ public class Individuo implements Comparable<Individuo>{
 	    	}		    
 		}		
 	}
+
+	public void mostrarDec() 
+	{
+	     int k = 0;
+	 	 for(byte decimal : decimal)
+	 	 {
+	 		 System.out.print(decimal);		   
+	 		 k++;
+	 		 if (k == 3) 
+			 {
+	 			 System.out.print("|");    			   
+	 			 k =0; 
+			 }
+	 	  }
+	      System.out.println();		
+	}
+
+	public void mostrarBin() 
+	{
+    	int k = 0;
+    	for(byte bit : binario)
+    	{
+    		System.out.print(bit);
+    		
+ 		    k++;
+ 		    if (k == 6) 
+ 		    {
+ 		    	System.out.print("|");
+ 		    	k = 0; 
+ 		    }	
+    	} 
+    	System.out.println();		
+	}
 }

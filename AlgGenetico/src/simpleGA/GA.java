@@ -13,21 +13,8 @@ public class GA {
     	String[][] jugadores = new String[fils][cols];
     	jugadores = LectorCSV.PasarCSVaMatriz("C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt",fils,cols);
     	//Pasando la ruta del arch como argumento al ejecutar Ej: java simpleGA.GA C:/Users/Leito/git/IA/AlgGenetico/src/simpleGA/archivo.txt
-	//jugadores = LectorCSV.PasarCSVaMatriz(args[0],fils,cols);
+    	//jugadores = LectorCSV.PasarCSVaMatriz(args[0],fils,cols);
 
-        /*System.out.println("----ARCHIVO CSV----");
-    	//Muestro los Jugadores del CSV.    	
-    	
-        for(String[] jugador : jugadores)
-    	{
-    		for(String detalle : jugador)
-    		{
-    		System.out.print(detalle + ";");   		
-    		}
-    		System.out.println();
-    	}
-    	*/
-    	
     	//Condiciones Iniciales
     	//Población inicial.
     	int cantPI = 50;
@@ -104,7 +91,7 @@ public class GA {
        Poblacion poblaFin = new Poblacion(cantSel, false); 
        poblaFin = poblaIni;
        
-       //ACÁ SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
+       //AC� SE TIENE QUE MOSTRAR EL MEJOR CON LISTADO DE LOS JUGADORES.
        System.out.println();
 	   System.out.println("3) Población Final");   
 	   System.out.print("Resultados Función Aptitud: "); 
@@ -113,9 +100,11 @@ public class GA {
    	  
    	   System.out.println();
    	   System.out.println();
-	   System.out.print("Composición del mejor invidiuo");  
+	   System.out.print("Composici�n del mejor invidiuo");  
 	   System.out.println(" (" + poblaFin.Individuos[0].puntaje + "):");	   
-	   
+	   System.out.print("Cromosoma: ");
+   	   poblaFin.Individuos[0].mostrarBin();
+   	   System.out.println();	   
 	   poblaFin.Individuos[0].mostrarJugadores(jugadores);
     }
 }
