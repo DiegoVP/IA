@@ -1,5 +1,5 @@
 package simpleGA;
-//
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
@@ -31,6 +31,7 @@ public class GA {
     	//"C:\Users\Leito\git\IA\AlgGenetico\src\simpleGA\Jugadores.txt";
     	
     	System.out.println("1) Creacion de Poblacion Inicial: " + cantPI + " individuos");
+	System.out.println();
     	Poblacion poblaIni = new Poblacion(cantPI, true); 
 
        //Comienza el ciclo de paro.
