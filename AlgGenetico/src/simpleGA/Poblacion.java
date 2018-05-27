@@ -1,7 +1,5 @@
 package simpleGA;
 
-
-
 public class Poblacion {
 
     Individuo[] Individuos;

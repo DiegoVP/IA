@@ -62,16 +62,20 @@ public class Individuo implements Comparable<Individuo>{
     public boolean HayRepetidos()
     {
     	boolean vf = false;	
+    	//Jugador a comparar con el resto.
 		int k = 0;
+		//Resto de los jugadores.
 		int j = 0;
 		
 	    for(int i=0; i<22; i++)
 		{
-		     j = k;	     
-		     while (getBit(k) == getBit(j+6) && getBit(k+1)  == getBit(j+7) && j < 126)	    	 
+		     j = k+6;	     
+		     //Compara por posición.
+		     while (j < 138 && getBit(k) == getBit(j) && getBit(k+1) == getBit(j+1) )	    	 
 		     {	    	 	 
-		    	 if (getBit(k+2) == getBit(j+8)  &&	 getBit(k+3) == getBit(j+9)  &&
-					 getBit(k+4) == getBit(j+10) &&	 getBit(k+5) == getBit(j+11))
+		    	 //Compara físico y nivel.
+		    	 if (getBit(k+2) == getBit(j+2)  &&	 getBit(k+3) == getBit(j+3)  &&
+					 getBit(k+4) == getBit(j+4)  &&	 getBit(k+5) == getBit(j+5))
 					 {
 		    		 return true;
 					 }
@@ -240,7 +244,7 @@ public class Individuo implements Comparable<Individuo>{
 	    			fis.equals(jugadores[k][3]) &&
 	    			niv.equals(jugadores[k][4]))
 	    		{
-	            	System.out.println(" " + jugadores[k][1]); 
+	            	System.out.println(" " + jugadores[k][1] + "."); 
 	            	encontrado = true;
 	    		}
 	    		else
