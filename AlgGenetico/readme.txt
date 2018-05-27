@@ -1,1 +1,2 @@
-
+El archivo Jugadores.txt contiene una lista de futbolistas candidatos a participar en la lista de los 23 jugadores para el Mundial de Rusia 2018. En dicho archivo también se detalla el puesto que ocupan, la condición física y nivel de cada jugador.
+Para ejecutar el algoritmo se deberá pasar como argumento la ruta donde se encuentre ubicado el archivo Jugadores.txt (por ejemplo: java simpleGA.GA c:/IA/AlgGenetico/src/simpleGA/Jugadores.txt)
