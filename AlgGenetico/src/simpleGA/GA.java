@@ -101,7 +101,7 @@ public class GA {
    	  
    	   System.out.println();
    	   System.out.println();
-	   System.out.print("Composición del mejor invidiuo");  
+	   System.out.print("Composición del mejor individuo");  
 	   System.out.println(" (" + poblaFin.Individuos[0].puntaje + "):");	   
 	   System.out.print("Cromosoma: ");
    	   poblaFin.Individuos[0].mostrarBin();
