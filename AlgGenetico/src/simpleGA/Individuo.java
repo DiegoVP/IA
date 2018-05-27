@@ -140,7 +140,11 @@ public class Individuo implements Comparable<Individuo>{
     public int obtenerFuncionAptitud()
     {   
     	int suma = 0;
-		int j = 0;    	
+		int j = 0;  
+		int mya = 0;
+		int ponzio = 0;
+		int perez = 0;
+		int krane = 0;
 		
 		//Se pasa a Decimal para analizar mejor los valores.
     	pasarADecimal();
@@ -148,10 +152,61 @@ public class Individuo implements Comparable<Individuo>{
     	//AGREGAR TODAS LAS CONDICIONES QUE FALTAN.
     	for(int i=0; i<23; i++)
 		{
-    		suma+= decimal[j+1] + decimal[j+2];
-    		j+= 3;
+    		suma+= 4*decimal[j+1] + 6*decimal[j+2];
     		
-    		//MESSI es decimal(k) = 3 y decimal(k+1) = 10 y decimal (k+2) = 10 x ejempLo.
+    		//Condiciones para sumar y restar
+    		//Si está Messi suma 40 puntos
+    		 if  (decimal[j] == 3 && decimal[j+1] == 10 && decimal [j+2] == 10) {suma+= 40; mya+=1;}
+    		//Si está Aguero
+    		 if  (decimal[j] == 3 && decimal[j+1] == 10 && decimal [j+2] == 9) {mya+=1;}
+    		//Si está Messi y Aguero juntos suma 10 puntos
+    		 if  (mya == 2) {suma+=10;}
+    		 
+    		//Si está Ponzio
+    		 if  (decimal[j] == 2 && decimal[j+1] == 9 && decimal [j+2] == 8) {ponzio+=1;}
+    		//Si está Kraneviter
+    		 if  (decimal[j] == 2 && decimal[j+1] == 10 && decimal [j+2] == 7) {krane+=1;}
+    		//Si está Pablo Perez
+    		 if  (decimal[j] == 2 && decimal[j+1] == 7 && decimal [j+2] == 7) {perez+=1;}
+    		//Si está Ponzio y Kraneviter juntos suma 7 puntos
+    		 if  (ponzio == 1 && krane == 1) {suma+=7;}
+    		//Si está Ponzio y Perez juntos resta 7 puntos
+    		 if  (ponzio == 1 && perez == 1) {suma-=7;}
+    		 
+    		 //Si hay un arquero con nivel mayor o igual a 9 suma 15 puntos
+    		 if  (decimal[j] == 0 && decimal [j+2] > 8) {suma+=15;}
+    		 
+    		 //Si hay un defensor con condición física mayor a 8 suma 10 puntos
+    		 if  (decimal[j] == 1 && decimal[j+1] > 8) {suma+=10;}
+    		 
+    		 //Si hay un volante con nivel mayor a 6 y condición física mayor a 6 suma 10 puntos
+    		 if  (decimal[j] == 2 && decimal[j+1] > 6 && decimal [j+2] > 6) {suma+=10;}
+    		 
+    		 //Si hay un delantero con nivel mayor a 8 suma 15 puntos.
+    		 if  (decimal[j] == 3 && decimal [j+2] > 8) {suma+=15;}
+    		 
+    		 //Si hay un arquero con nivel menor a 8 resta 10 puntos
+    		 if  (decimal[j] == 0 && decimal [j+2] < 8) {suma-=10;}
+    		 
+    		 //Si hay un arquero con condición física menor a 8 resta 5 puntos
+    		 if  (decimal[j] == 0 && decimal [j+1] < 8) {suma-=5;}
+    		 
+    		 //Si hay un defensor con nivel menor a 8 resta 5 puntos
+    		 if  (decimal[j] == 1 && decimal[j+2] < 8) {suma-=5;}
+    		 
+    		 //Si hay un volante con condición física menor a 8 resta 5 puntos
+    		 if  (decimal[j] == 2 && decimal[j+1] < 8) {suma-=5;}
+    		 
+    		 //Si hay un delantero con nivel menor a 8 resta 10 puntos
+    		 if  (decimal[j] == 3 && decimal [j+2] < 8) {suma+=10;}
+    		 
+    		j+= 3;
+    		    		
+    		//MESSI:  decimal(j) = 3 && decimal(j+1) = 10 && decimal (j+2) = 10 
+    		//AGUERO: decimal(j) = 3 && decimal(j+1) = 10 && decimal (j+2) = 9
+    		//PONZIO: decimal(j) = 2 && decimal(j+1) = 9  && decimal (j+2) = 8
+    		//KRANE:  decimal(j) = 2 && decimal(j+1) = 10  && decimal (j+2) = 7
+    		//PEREZ:  decimal(j) = 2 && decimal(j+1) = 7  && decimal (j+2) = 7
 		}
     	
     	//Si hay algun repetido se devuelve 0.
