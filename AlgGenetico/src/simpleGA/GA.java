@@ -30,16 +30,16 @@ public class GA {
     	jugadores = LectorCSV.PasarCSVaMatriz(args[0],fils,cols);
     	//"C:\Users\Leito\git\IA\AlgGenetico\src\simpleGA\Jugadores.txt";
     	
-    	System.out.println("1) Creación de Población Inicial: " + cantPI + " individuos");
+    	System.out.println("1) Creacion de Poblacion Inicial: " + cantPI + " individuos");
     	Poblacion poblaIni = new Poblacion(cantPI, true); 
 
        //Comienza el ciclo de paro.
-       System.out.println("2) Comienza la operación. Cantidad de ciclos: " + ciclos + "."); 
+       System.out.println("2) Comienza la operacion. Cantidad de ciclos: " + ciclos + "."); 
        for(int c=1;c<=ciclos;c++)
 	   {
     	   System.out.println("Ciclo: " + c);
 	       
-	       System.out.println("A) Selección: Ranking."); 
+	       System.out.println("A) Seleccion: Ranking."); 
 	       Poblacion poblaSel = new Poblacion(cantSel, false); 
 	       poblaSel = Operador.Seleccion(poblaIni, cantSel);
 	              
@@ -48,7 +48,7 @@ public class GA {
 	       Poblacion poblaCruz = new Poblacion(cantSel, false);       
 	       poblaCruz = Operador.Cruzamiento(poblaSel,cantSel);       
 	  	  	       
-	      System.out.print("C) Mutación (" + porMut + "%): ");   
+	      System.out.print("C) Mutacion (" + porMut + "%): ");   
 	      Poblacion poblaMut = new Poblacion(cantSel, false); 
 
 	      poblaMut = Operador.Mutacion(poblaCruz, porMut, indMut, bitMut);
@@ -62,14 +62,14 @@ public class GA {
        poblaFin = poblaIni;
        
        System.out.println();
-	   System.out.println("3) Población Final");   
-	   System.out.print("Resultados Función Aptitud: "); 
+	   System.out.println("3) Poblacion Final");   
+	   System.out.print("Resultados Funcion Aptitud: "); 
    	   Arrays.sort(poblaFin.Individuos);
    	   poblaIni.mostrarFA();
    	  
    	   System.out.println();
    	   System.out.println();
-	   System.out.print("Composición del mejor individuo");  
+	   System.out.print("Composicion del mejor individuo");  
 	   System.out.println(" (" + poblaFin.Individuos[0].puntaje + "):");	   
 	   System.out.print("Valores del Cromosoma: ");
    	   poblaFin.Individuos[0].mostrarBin();
